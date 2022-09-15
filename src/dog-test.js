@@ -19,7 +19,7 @@ describe("Dog", function() {
 
     assert.equal(cap.energyLevel, 5);
     assert.equal(cap.hungry, true);
-    assert.equal(cap.friends, []);
+    assert.deepEqual(cap.friends, []);
   })
 
   it.skip('should no longer be hungry after eating', function() {
@@ -54,7 +54,7 @@ describe("Dog", function() {
   })
 
   it.skip('should not fetch the ball if they\'re too tired', function() {
-    //note: they should only fetch with an energy level of 3 or higher
+    //note: they should only fetch with an energy level of more than 3
     var connie = new Dog({ name: 'Conrad', age: 4 });
 
     assert.equal(connie.energyLevel, 5);
