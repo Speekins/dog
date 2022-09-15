@@ -51,7 +51,7 @@ describe("Person", function() {
     nick.introduceNewFriends(wren);
 
     assert.equal(toph.friends[0], 'Wren');
-  }
+  })
 
   it.skip('should be able to adopt a dog if they don\'t already have one', function() {
     var dawn = new Person('Dawn');
