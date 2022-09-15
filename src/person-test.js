@@ -33,25 +33,25 @@ describe("Person", function() {
   it.skip('should play with dog', function() {
     var wren = new Dog({ name: 'Wren', age: 5});
     var leah = new Person('Leah', wren);
+    var toph = new Dog({ name: 'Toph', age: 2.5});
+    var nick = new Person('Nick', toph);
 
-    var pupPlayTime = leah.throwBall();
+    var wrenPlayTime = leah.throwBall();
+    var tophPlayTime = nick.throwBall();
 
-    assert.equal(pupPlayTime, 'Wren loves playing fetch!');
+    assert.equal(wrenPlayTime, 'Wren loves playing fetch!');
+    assert.equal(tophPlayTime, 'Toph loves playing fetch!');
   })
 
-  it.skip('should notice when dog no longer wants to play', function() {
-    var connie = new Dog({ name: 'Conrad', age: 0.5});
-    var kari = new Person('Kari', connie);
+  it.skip('should be able to introduce your dog to a new dog friend', function() {
+    var wren = new Dog({ name: 'Wren', age: 5});
+    var toph = new Dog({ name: 'Toph', age: 2.5});
+    var nick = new Person('Nick', toph);
 
-    var firstThrow = kari.throwBall();
-    var secondThrow = kari.throwBall();
+    nick.introduceNewFriends(wren);
 
-    assert.equal(secondThrow, 'Conrad loves playing fetch!');
-
-    var thirdThrow = kari.throwBall();
-
-    assert.equal(thirdThrow, 'Oh, I think Conrad is too tired. I guess we won\'t play fetch right now.');
-  })
+    assert.equal(toph.friends[0], 'Wren');
+  }
 
   it.skip('should be able to adopt a dog if they don\'t already have one', function() {
     var dawn = new Person('Dawn');
