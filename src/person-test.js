@@ -37,10 +37,33 @@ describe("Person", function() {
     var nick = new Person('Nick', toph);
 
     var wrenPlayTime = leah.throwBall();
-    var tophPlayTime = nick.throwBall();
 
     assert.equal(wrenPlayTime, 'Wren loves playing fetch!');
-    assert.equal(tophPlayTime, 'Toph loves playing fetch!');
+    assert.equal(wren.energyLevel, 4);
+
+    var tophPlayTime1 = nick.throwBall();
+    var tophPlayTime2 = nick.throwBall();
+
+    assert.equal(tophPlayTime1, 'Toph loves playing fetch!');
+    assert.equal(toph.energyLevel, 3);
+  })
+
+  it.skip('should not be able to play fetch if the dog is too tired', function() {
+    var luna = new Dog({ name: 'Luna', age: 3 });
+    var trisha = new Person('Trisha', luna);
+
+    assert.equal(luna.energyLevel, 5);
+
+    trisha.throwBall();
+    trisha.throwBall();
+
+    assert.equal(luna.energyLevel, 3);
+
+    trisha.throwBall();
+    trisha.throwBall();
+
+    assert.equal(luna.energyLevel, 3);
+
   })
 
   it.skip('should be able to introduce your dog to a new dog friend', function() {
